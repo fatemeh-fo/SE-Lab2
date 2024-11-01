@@ -21,8 +21,21 @@ class MessengerUI {
         this.serviceFactory = new MessageServiceFactory();
     }
 
-    public void start() {
-        // TODO
+    public void start() {        
+        System.out.println("Welcome to SE Lab Messenger.");
+    
+        while (true) {
+            displayMenu();
+            int choice = scanner.nextInt();
+            
+            if (choice == 0) break;
+            
+            try {
+                handleUserChoice(choice);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
     }
     
     private void displayMenu() {
