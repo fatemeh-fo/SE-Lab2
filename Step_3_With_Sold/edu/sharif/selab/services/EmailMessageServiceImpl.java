@@ -1,10 +1,10 @@
 package edu.sharif.selab.services;
 
-import edu.sharif.selab.models.EmailMessage2;
+import edu.sharif.selab.models.EmailMessage;
 
 public class EmailMessageServiceImpl implements EmailMessageService2 {
     @Override
-    public void sendMessage(EmailMessage2 message) {
+    public void sendMessage(EmailMessage message) {
         if(validateEmailAddress(message.getSourceEmailAddress()) && 
            validateEmailAddress(message.getTargetEmailAddress())) {
             System.out.println("Sending email from " + message.getSourceEmailAddress() + 
@@ -22,5 +22,5 @@ public class EmailMessageServiceImpl implements EmailMessageService2 {
 }
 
 interface EmailMessageService2 {
-    void sendMessage(EmailMessage2 message);
+    void sendMessage(EmailMessage message);
 }

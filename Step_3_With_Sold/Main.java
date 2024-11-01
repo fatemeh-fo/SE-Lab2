@@ -46,7 +46,16 @@ class MessengerUI {
     }
     
     private void handleUserChoice(int choice) {
-        // TODO
+        MessageType type = switch (choice) {
+            case 1 -> MessageType.SMS;
+            case 2 -> MessageType.EMAIL;
+            case 3 -> MessageType.TELEGRAM;
+            default -> throw new IllegalArgumentException("Invalid choice");
+        };
+
+        Message message = messageFactory.createMessage(type);
+        fillMessageDetails(message, type);
+        sendMessage(message, type);
     }
     
     private void fillMessageDetails(Message message, MessageType type) {
