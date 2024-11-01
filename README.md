@@ -2,27 +2,6 @@
 
 # آشنایی با اصول شئ‌گرایی (موسوم به اصول SOLID)
 
-## اهداف
-در این آزمایش هدف بر آن است که دانشجویان با به کارگیری اصول SOLID در یک پروژه‌ی عملی ساده آشنا شوند.
-
-## نیازمندی‌ها
-آشنایی اولیه با مفاهیم برنامه نویسی و طراحی شی‌گرا که دانشجویان قبلاً در درس برنامه‌سازی پیشرفته با آن آشنا شده‌اند.
-
-## ابزارهای مورد استفاده
-- یک Java IDE مانند IntelliJ IDEA و یا Eclipse به همراه jdk حداقل نسخه ۸ 
-
-## منابع آموزشی
-برای آشنایی با این اصول و آشنایی با منابع مناسب به [اینجا](https://github.com/ssc-public/Software-Engineering-Lab/blob/main/educational-resources/SOLID/README.md) مراجعه کنید.
-
-## مقدمه
-در این آزمایش شما خواهید آموخت که چگونه می‌توانید با به کارگیری اصول SOLID، نرم‌افزارهایی را بسازید که از نظر قابلیت نگهداری و بهبود، در وضعیت مطلوبی باشند و مدیریت تغییرات در آن‌ها به آسانی میسر باشد (شک نکنید که به کارگیری این اصول اساسی و بسیاری دیگر از اصول مهندسی نرم افزار، باعث تفاوت شما با سایر همکارانتان خواهد شد)
-
-## بخش اول: توضیحاتی پیرامون برنامه‌ی داده شده
-می‌توانید برنامه را از [اینجا](https://github.com/ssc-public/Software-Engineering-Lab/tree/main/base-projects/SOLID-Principles) بارگیری کنید.
-
-### مفروضات مسئله
-صورت آزمایش در درس افزار بارگزاری شده است و می‌توانید برای تحویل گزارش (با در نظر گرفتن ملاحظات گفته شده) از قالب های زیر استفاده کنید.
-
 ## بخش دوم: دستور آزمایش
 
 ### گام ۱: افزودن یک روش پیام رسانی دیگر
@@ -33,83 +12,19 @@
       2. افزودن تابع جدید به کلاس و یا واسط (برای توابع جدید صرفا اعلام تغییر کنید)
       3. هر خطوط پیاپی‌ای که در تابع main و برای افزودن یک قابلیت جدید اضافه می‌کنید. به عنوان مثال اگر سه خط را به منظور تشخیص نوع پیام اضافه می‌کنید، آن سه خط را در قالب یک تغییر اعلام کنید (البته جزییات آن را در ستون «شرحی کوتاه از تغییر» توضیح دهید).
 
-<table dir='rtl'>
-<tbody>
-<tr>
-<td width="64">
-<p><strong>ردیف</strong></p>
-</td>
-<td width="198">
-<p><strong>محل اعمال تغییرات (کلاس/واسط)</strong></p>
-</td>
-<td width="141">
-<p><strong>عنوان تغییر</strong></p>
-</td>
-<td width="292">
-<p><strong>شرحی کوتاه از تغییر</strong></p>
-</td>
-</tr>
-<tr>
-<td width="64">
-<p><strong>۱</strong></p>
-</td>
-<td width="198">
-<p>MessageService</p>
-</td>
-<td width="141">
-<p>افزودن تابع ارسال پیام تلگرامی</p>
-</td>
-<td width="292">
-<p>افزودن یک تابع void با عنوان sendTelegramMessage</p>
-</td>
-</tr>
+| شرحی کوتاه از تغییر | عنوان تغییر |‌ محل اعمال تغییرات (کلاس/واسط) | ردیف|
+|--:|--:|:--:|:--:|
+| ساخت یک کلاس public که از MessageService ارث میبرد | ساخت کلاس سرویس مسج‌دهی تلگرام| TelegramMessageService| ۱ |
+| اضافه کردن تابع sendSmsMessage در TelegramMessageService با بدنه خالی | افزودن تابع با بدنه خالی sendSmsMessage به TelegramMessageService | TelegramMessageService| ۲ |
+| اضافه کردن تابع sendEmailMessage در TelegramMessageService با بدنه خالی | افزودن تابع با بدنه خالی sendEmailMessage به TelegramMessageService | TelegramMessageService| ۳ |
+| اضافه کردن کلاس public به نام TelegramMessage که از Message ارث  میبرد و دارای دو field به نامهای sourceId و targetId هست. | ساخت کلاس TelegramMessage | TelegramMessage | ۴ |
+| افزودن تابع void sendTelegramMessage(TelegramMessage message) به MessageService | افزودن تابع sendTelegramMessage به واسط MessageService | MessageService | ۵ |
+| اضافه کردن تابع sendTelegramMessage در EmailMessageSevice با بدنه خالی | پیاده‌‌سازی تابع sendTelegramMessage با بدنه‌ی خالی | EmailMessageSevice | ۶ |
+| اضافه کردن تابع sendTelegramMessage در SmsMessageSevice با بدنه خالی | پیاده‌‌سازی تابع sendTelegramMessage با بدنه‌ی خالی | SmsMessageSevice | ۷ |
+| بررسی شروع شدن sourceId و targetId با حرف '@' و درصورت قبولی، پرینت کردن جمله‌ی حاوی پیام تایید ارسال | پیاده‌سازی تابع sendTelegramMessage در TelegramMessageService | TelegramMessageSevice | ۸ |
+| دریافت آیدی مبدا و مقصد و محتویات پیغام تلگرامی و اجرای کلاس TelegramMessageService | افزودن امکان ارسال پیام تلگرامی | Main | ۹ |
 
-<tr>
-<td width="64">
-<p><strong>&nbsp;</strong></p>
-</td>
-<td width="198">
-<p>&nbsp;</p>
-</td>
-<td width="141">
-<p>&nbsp;</p>
-</td>
-<td width="292">
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td width="64">
-<p><strong>&nbsp;</strong></p>
-</td>
-<td width="198">
-<p>&nbsp;</p>
-</td>
-<td width="141">
-<p>&nbsp;</p>
-</td>
-<td width="292">
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td width="64">
-<p><strong>&nbsp;</strong></p>
-</td>
-<td width="198">
-<p>&nbsp;</p>
-</td>
-<td width="141">
-<p>&nbsp;</p>
-</td>
-<td width="292">
-<p>&nbsp;</p>
-</td>
-</tr>
-</tbody>
-</table>
-
-مجموع تعداد تغییرات: ..............
+مجموع تعداد تغییرات: ۹
 
 ### گام ۲: تحلیل و وارسی برنامه از منظر تحقق و یا عدم تحقق اصول SOLID
 در خصوص این برنامه‌ای که نوشته شده بود و شما یک قابلیت به آن اضافه کردید، بر اساس اصول SOLID موارد نقض و یا محقق شدن هر کدام از آن اصول را بیان کنید. در بیان موارد تحقق و نقض، علت تحقق و یا نقض را نیز به صورت کامل توضیح دهید:
