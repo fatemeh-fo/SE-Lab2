@@ -2,7 +2,7 @@ package edu.sharif.selab.services;
 
 import edu.sharif.selab.models.SmsMessage2;
 
-public class SmsMessageServiceImpl2 implements SmsMessageService2 {
+public class SmsMessageServiceImpl implements SmsMessageService2 {
     @Override
     public void sendMessage(SmsMessage2 message) {
         if(validatePhoneNumber(message.getSourcePhoneNumber()) && 
