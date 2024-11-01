@@ -59,7 +59,34 @@ class MessengerUI {
     }
     
     private void fillMessageDetails(Message message, MessageType type) {
-        // TODO
+        scanner.nextLine(); // Clear buffer
+        
+        switch (type) {
+            case SMS -> {
+                SmsMessage smsMessage = (SmsMessage) message;
+                System.out.print("Enter source phone: ");
+                smsMessage.setSourcePhoneNumber(scanner.nextLine());
+                System.out.print("Enter target phone: ");
+                smsMessage.setTargetPhoneNumber(scanner.nextLine());
+            }
+            case EMAIL -> {
+                EmailMessage emailMessage = (EmailMessage) message;
+                System.out.print("Enter source email: ");
+                emailMessage.setSourceEmailAddress(scanner.nextLine());
+                System.out.print("Enter target email: ");
+                emailMessage.setTargetEmailAddress(scanner.nextLine());
+            }
+            case TELEGRAM -> {
+                TelegramMessage telegramMessage = (TelegramMessage) message;
+                System.out.print("Enter source ID: ");
+                telegramMessage.setSourceId(scanner.nextLine());
+                System.out.print("Enter target ID: ");
+                telegramMessage.setTargetId(scanner.nextLine());
+            }
+        }
+        
+        System.out.print("Enter message content: ");
+        message.setContent(scanner.nextLine());
     }
     
     private void sendMessage(Message message, MessageType type) {
