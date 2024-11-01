@@ -39,7 +39,10 @@ class MessengerUI {
     }
     
     private void displayMenu() {
-        // TODO
+        System.out.println("1. Send SMS message");
+        System.out.println("2. Send Email message");
+        System.out.println("3. Send Telegram message");
+        System.out.println("0. Exit");
     }
     
     private void handleUserChoice(int choice) {
