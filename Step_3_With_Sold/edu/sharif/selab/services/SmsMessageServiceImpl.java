@@ -4,7 +4,7 @@ import edu.sharif.selab.models.SmsMessage2;
 
 public class SmsMessageServiceImpl implements SmsMessageService2 {
     @Override
-    public void sendMessage(SmsMessage2 message) {
+    public void sendMessage(SmsMessage message) {
         if(validatePhoneNumber(message.getSourcePhoneNumber()) && 
            validatePhoneNumber(message.getTargetPhoneNumber())) {
             System.out.println("Sending SMS from " + message.getSourcePhoneNumber() + 
@@ -22,5 +22,5 @@ public class SmsMessageServiceImpl implements SmsMessageService2 {
 }
 
 interface SmsMessageService2 {
-    void sendMessage(SmsMessage2 message);
+    void sendMessage(SmsMessage message);
 }
