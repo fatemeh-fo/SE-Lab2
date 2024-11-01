@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+import edu.sharif.selab.enums.MessageType;
+import edu.sharif.selab.models.Message;
+import edu.sharif.selab.models.SmsMessage;
+import edu.sharif.selab.models.TelegramMessage;
+import edu.sharif.selab.models.EmailMessage;
+import edu.sharif.selab.services.EmailMessageServiceImpl;
+import edu.sharif.selab.services.SmsMessageServiceImpl;
+import edu.sharif.selab.services.TelegramMessageServiceImpl;
 import edu.sharif.selab.factories.MessageFactory;
 import edu.sharif.selab.factories.MessageServiceFactory;
 
@@ -92,15 +100,15 @@ class MessengerUI {
     private void sendMessage(Message message, MessageType type) {
         switch (type) {
             case SMS -> {
-                SmsMessageService service = (SmsMessageService) serviceFactory.createService(type);
+                SmsMessageServiceImpl service = (SmsMessageServiceImpl) serviceFactory.createService(type);
                 service.sendMessage((SmsMessage) message);
             }
             case EMAIL -> {
-                EmailMessageService service = (EmailMessageService) serviceFactory.createService(type);
+                EmailMessageServiceImpl service = (EmailMessageServiceImpl) serviceFactory.createService(type);
                 service.sendMessage((EmailMessage) message);
             }
             case TELEGRAM -> {
-                TelegramMessageService service = (TelegramMessageService) serviceFactory.createService(type);
+                TelegramMessageServiceImpl service = (TelegramMessageServiceImpl) serviceFactory.createService(type);
                 service.sendMessage((TelegramMessage) message);
             }
         }
