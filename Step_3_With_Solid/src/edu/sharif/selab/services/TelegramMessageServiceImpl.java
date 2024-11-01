@@ -1,8 +1,8 @@
 package edu.sharif.selab.services;
 
-import edu.sharif.selab.models.TelegramMessage2;
+import edu.sharif.selab.models.TelegramMessage;
 
-public class TelegramMessageServiceImpl implements TelegramMessageService2 {
+public class TelegramMessageServiceImpl implements TelegramMessageService {
     @Override
     public void sendMessage(TelegramMessage message) {
         if(validateId(message.getSourceId()) && validateId(message.getTargetId())) {
@@ -19,6 +19,6 @@ public class TelegramMessageServiceImpl implements TelegramMessageService2 {
     }
 }
 
-interface TelegramMessageService2 {
+interface TelegramMessageService {
     void sendMessage(TelegramMessage message);
 }

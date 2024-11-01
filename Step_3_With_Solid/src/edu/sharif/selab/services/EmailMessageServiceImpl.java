@@ -1,5 +1,7 @@
 package edu.sharif.selab.services;
 
+import java.util.regex.Pattern;
+
 import edu.sharif.selab.models.EmailMessage;
 
 public class EmailMessageServiceImpl implements EmailMessageService2 {
