@@ -18,6 +18,11 @@ public class SmsMessageService implements MessageService{
         //Empty Body!
     }
 
+    @Override
+    public void sendTelegramMessage(TelegramMessage smsMessage) {
+        //Empty Body
+    }
+
     private boolean validatePhoneNumber(String phoneNumber) {
         // Check if the phone number is exactly 11 characters long
         if (phoneNumber.length() != 11) {
