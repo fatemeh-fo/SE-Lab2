@@ -90,6 +90,19 @@ class MessengerUI {
     }
     
     private void sendMessage(Message message, MessageType type) {
-        // TODO
+        switch (type) {
+            case SMS -> {
+                SmsMessageService service = (SmsMessageService) serviceFactory.createService(type);
+                service.sendMessage((SmsMessage) message);
+            }
+            case EMAIL -> {
+                EmailMessageService service = (EmailMessageService) serviceFactory.createService(type);
+                service.sendMessage((EmailMessage) message);
+            }
+            case TELEGRAM -> {
+                TelegramMessageService service = (TelegramMessageService) serviceFactory.createService(type);
+                service.sendMessage((TelegramMessage) message);
+            }
+        }
     }
 }
