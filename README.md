@@ -29,172 +29,23 @@
 ### گام ۲: تحلیل و وارسی برنامه از منظر تحقق و یا عدم تحقق اصول SOLID
 در خصوص این برنامه‌ای که نوشته شده بود و شما یک قابلیت به آن اضافه کردید، بر اساس اصول SOLID موارد نقض و یا محقق شدن هر کدام از آن اصول را بیان کنید. در بیان موارد تحقق و نقض، علت تحقق و یا نقض را نیز به صورت کامل توضیح دهید:
 
-<table dir='rtl'>
-<tbody>
-<tr>
-<td rowspan="2" width="240">
-<p>اصل 1</p>
-<p>Single Responsibility</p>
-</td>
-<td width="95">
-<p><strong>موارد تحقق</strong></p>
-</td>
-<td width="454">
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><strong>موارد نقض</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td rowspan="2">
-<p>اصل 2</p>
-<p>Open-Close Principle (OCP)</p>
-</td>
-<td>
-<p><strong>موارد تحقق</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><strong>موارد نقض</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td rowspan="2">
-<p>اصل 3</p>
-<p>Liskov Substitution Principle</p>
-</td>
-<td>
-<p><strong>موارد تحقق</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><strong>موارد نقض</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td rowspan="2">
-<p>اصل 4</p>
-<p>Interface Segregation Principle</p>
-</td>
-<td>
-<p><strong>موارد تحقق</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><strong>موارد نقض</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td rowspan="2">
-<p>اصل 5</p>
-<p>Dependency Inversion Principle</p>
-</td>
-<td>
-<p><strong>موارد تحقق</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><strong>موارد نقض</strong></p>
-</td>
-<td>
-<p>&nbsp;</p>
-</td>
-</tr>
-</tbody>
-</table>
+| موارد  نقض |‌ موارد تحقق | نام اصل SOLID |‌ ردیف |
+|--:|--:|:--:|:--:|
+| کلاس Main مسئولیت‌های متعددی دارد: دریافت ورودی، ایجاد پیام‌ها، و مدیریت سرویس‌های ارسال | کلاس‌های Message و زیرکلاس‌های آن هر کدام مسئولیت مشخص و واحدی دارند | Single Responsibility Principle (SRP) | 1 |
+| برای افزودن هر نوع پیام جدید باید کد Main را تغییر داد و switch-case جدید اضافه کرد | ساختار کلی Message و MessageService به گونه‌ای است که می‌توان انواع جدید پیام را با ارث‌بری اضافه کرد | Open-Close Principle (OCP) | 2 |
+| سرویس‌های پیام‌رسان در توابعی که مربوط به سایر سرویس‌ها هستند بدنه خالی دارند که نقض LSP است | زیرکلاس‌های Message به درستی جایگزین کلاس پایه می‌شوند | Liskov Substitution Principle (LSP) | 3 |
+| واسط MessageService شامل متدهایی است که برای همه پیاده‌سازی‌ها مورد نیاز نیست و بدنه خالی دارند | - | Interface Segregation Principle (ISP) | 4 |
+| کلاس Main مستقیماً به پیاده‌سازی‌های خاص وابسته است | ساختار کلی برنامه از interface MessageService استفاده می‌کند | Dependency Inversion Principle (DIP) | 5 |
 
 در خصوص هرکدام از موارد نقض هرکدام از اصول، یک راهکار را به منظور رفع آن مشکل ارایه داده و در جدول زیر ثبت نمایید:
 
-<table dir='rtl'>
-<tbody>
-<tr>
-<td width="168">
-<p><strong>اصل مربوطه (از اصول </strong><strong>SOLID</strong><strong>)</strong></p>
-</td>
-<td width="246">
-<p><strong>علت نقض</strong></p>
-</td>
-<td width="284">
-<p><strong>راه حل پیشنهادی</strong></p>
-</td>
-</tr>
-<tr>
-<td width="168">
-<p>&nbsp;</p>
-</td>
-<td width="246">
-<p>&nbsp;</p>
-</td>
-<td width="284">
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td width="168">
-<p>&nbsp;</p>
-</td>
-<td width="246">
-<p>&nbsp;</p>
-</td>
-<td width="284">
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td width="168">
-<p>&nbsp;</p>
-</td>
-<td width="246">
-<p>&nbsp;</p>
-</td>
-<td width="284">
-<p>&nbsp;</p>
-</td>
-</tr>
-<tr>
-<td width="168">
-<p>&nbsp;</p>
-</td>
-<td width="246">
-<p>&nbsp;</p>
-</td>
-<td width="284">
-<p>&nbsp;</p>
-</td>
-</tr>
-</tbody>
-</table>
+| راه حل پیشنهادی | علت نقض | اصل مربوطه |
+|--:|--:|:--:|
+| جداسازی مسئولیت‌های کلاس Main به کلاس‌های جداگانه برای UI و مدیریت پیام‌ها | تجمع مسئولیت‌های مختلف در Main | SRP |
+| استفاده از Factory Pattern برای ساخت پیام‌ها و حذف switch-case | نیاز به تغییر کد برای افزودن نوع جدید پیام | OCP |
+| تعریف interface‌های جداگانه برای هر نوع سرویس پیام‌رسان | وجود متدهای غیرضروری با بدنه خالی در سرویس‌ها | ISP |
+| استفاده از MessageFactory و ServiceFactory برای کاهش وابستگی مستقیم | وابستگی مستقیم به پیاده‌سازی‌ها در Main | DIP |
+
 
 ### گام ۳: اصلاح موارد نقض
 در نهایت، بر اساس تحلیلی که انجام داده‌اید و راه حل‌هایی که در بخش قبل ارایه کردید، کد را اصلاح کرده و بر روی مخزن گیت‌هاب و در پوشه‌ای مجزا از گام قبل commit و push کنید. انتظار می‌رود که تمامی راه حل‌های پیشنهادی خود را بر روی این نسخه اعمال کنید و تمامی بهبودهایی که انجام می‌دهید، در جداول بخش قبل موجود باشد.
