@@ -21,12 +21,28 @@ class MessengerUI {
         this.serviceFactory = new MessageServiceFactory();
     }
 
-    public void start() {
-        // TODO
+    public void start() {        
+        System.out.println("Welcome to SE Lab Messenger.");
+    
+        while (true) {
+            displayMenu();
+            int choice = scanner.nextInt();
+            
+            if (choice == 0) break;
+            
+            try {
+                handleUserChoice(choice);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
     }
     
     private void displayMenu() {
-        // TODO
+        System.out.println("1. Send SMS message");
+        System.out.println("2. Send Email message");
+        System.out.println("3. Send Telegram message");
+        System.out.println("0. Exit");
     }
     
     private void handleUserChoice(int choice) {
